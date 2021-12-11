@@ -1,5 +1,5 @@
 <!--
-  ~ 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ ~二次开发版权所有（c）2021 Leeliner 
   -->
 
 <!DOCTYPE html>
@@ -23,6 +23,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+<style>body{
+  background-image: url(".././images/bg2.jpg");
+  zoom: 1.0;
+  -moz-transform: scale(1);
+  -moz-transform-origin: 0 0;
+  -moz-background-size:100% 100%;  
+  background-size:100% 100%; 
+  background-attachment:fixed;
+}</style>
 </head>
 
 
@@ -33,7 +42,7 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <a href="http://www.shaoxiongdu.cn" target="_blank"><h2 class="ui teal header item">DSX_BLOG后台管理</h2></a>
+      <a href="http://localhost:8081" target="_blank"><h2 class="ui violet header item">2021BLOG后台管理</h2></a>
       <a th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class=" home icon"></i>博客</a>
       <a th:href="@{/admin/types}" class=" m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class=" list icon"></i>分类</a>
       <a th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class=" tags icon"></i>标签</a>
@@ -68,66 +77,55 @@
 
       <!--个人说明-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini">BLOG</h4>
+        <h4 class="ui inverted header me-opacity-mini">寄语</h4>
         <div class="ui inverted list link">
-          <p class="item">每个人都有属于自己的一片森林</p>
-          <p class="item">也许我们从来不曾去过</p>
-          <p class="item">但它一直在那里</p>
-          <p class="item">总会在那里</p>
+          <p style="color: #ffffff" class="item">每个人都有一段路要自己走</p>
+          <p style="color: #ffffff" class="item">沿途或许有很多风景</p>
+          <p style="color: #ffffff" class="item">但一旦停留</p>
+          <p style="color: #ffffff" class="item">必然会得到欣赏美也会失去某些东西</p>
         </div>
       </div>
+    
 
-
-      <!--推荐博客-->
       <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>
         <div id="newblog-container">
           <div class="ui inverted link list" th:fragment="newblogList">
             <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
+
+
           </div>
         </div>
       </div>
 
-      <!--联系作者-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini">联系博主</h4>
+        <h4 class="ui inverted header me-opacity-mini">IP地址</h4>
         <div class="ui inverted list link">
-          <p>
-            <a target="_blank" style="color: #888888" title="添加我的QQ" href="http://wpa.qq.com/msgrd?v=3&uin=740593369&site=qq&menu=yes" >QQ:740593369</a>
-          </p>
-          <p></p>
-          <p class="item">微信:15603430511</p>
-          <p>
-            <a target="_blank" style="color: #888888" title="我的Github" href="https://github.com/shaoxiongdu" >GitHub:ShaoxiongDu</a>
-          </p>
-          <p>
-            <a target="_blank" style="color: #888888" title="给我发送邮件" href="mailto:email@shaoxiongdu.cn" >邮箱: email@shaoxiongdu.cn</a>
-          </p>
+          
+           <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+           <p id="ip"> <span style="color:#bd8787;">你的IP:<script>
+                    document.write(returnCitySN["cip"]);
+                    // var iip=returnCitySN["cip"];
+                    // document.getElementById("ip").innerHTML = "你的IP:"+iip;
+                   </script></span>
+         </p>
+         <p style="color:#fff;">你的地址:<script>
+                    document.write(returnCitySN["cname"])
+                   </script>© <a style="text-decoration:none;color:rgba(22, 241, 176, 0.867);" href="https://www.x6d.com/">leeliner</a> 版权所有</p>
+                   <script type="text/javascript" color="255,255,255" opacity='0.7' zIndex="-2" count="200" src=".././js/canvas-nest.min.js"></script>
+
+
         </div>
       </div>
 
-      <!--微信二维码-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini" >更多开源项目</h4>
+        <h4 class="ui inverted header me-opacity-mini" >网站信息</h4>
         <div class="ui inverted link list">
 
-          <!--<a class="item" href="#" th:href="@{/about}"><img th:src="@{/images/wechat.jpg}"   class="ui rounded image"  style="width: 110px"></a>-->
-          <a href="#"><img src="http://www.gitee.com/ShaoxiongDu/imageBed/raw/master/GithubQR.jpg" style="width: 110px" title="持续分享更多好玩，有趣，又沙雕的开源项目，欢迎关注！"></a>
+          <p style="color:#fff;" class="item">访问量 : <span th:text="${session.views}"></span> &nbsp;&nbsp;&nbsp;<br> <br>本网站艰难维护了 : <span style="color:#fff;" id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
 
         </div>
       </div>
-
-    </div>
-
-    <div class="ui inverted section divider"></div>
-
-    <!--ICP备案号-->
-    <div class="ui inverted list link">
-      <p style="color: #AAAAAA;font-size: 17px" >程序员不是天生的 | @版权所有 © 杜少雄 2021 保留所有权利<a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>&nbsp;&nbsp;&nbsp;晋ICP备2020012997号-2</a> <p>
-
-
-      <!--访问量数据-->
-      <p class="item">访问量 : <span th:text="${session.views}"></span> &nbsp;&nbsp;&nbsp; 勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
     </div>
   </div>
 

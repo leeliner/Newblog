@@ -1,5 +1,5 @@
 <!--
-  ~ 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ ~二次开发版权所有（c）2021 Leeliner 
   -->
 
 
@@ -9,10 +9,7 @@
 <head th:fragment="head(title)">
 
   <!--关键字爬虫-->
-  <link rel="canonical" href="http://www.shaoxiongdu.cn">
-  <meta name="keywords" content="杜少雄,个人博客,博客,少雄,少雄杜,杜少雄,杜少雄的个人博客,个人博客,blog,博客"/>
 
-  <meta name="description" content="杜少雄的个人博客 分享一些学习中遇到的问题或者学习笔记"/>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 
@@ -48,28 +45,29 @@
 <body>
 
 <!--导航-->
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
-  <div class="ui container">
+<nav th:fragment="menu(n)" class="ui inverted attached m-padded-tb-mini m-shadow-small" >
+  <div class="ui container" style="width: 1500px;">
     <div class="ui inverted secondary stackable menu" style="font-size: 17px">
-      <a href="http://www.shaoxiongdu.cn/admin/blogs/" target="_blank" ><h2 class="ui teal header item" th:utext="${session.topTitle}"></h2></a>
+      <a href="#" target="_blank" ><h2 class="ui violet header item" th:utext="${session.topTitle}"></h2></a>
       <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'">首页</a>
       <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'">分类</a>
       <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'">标签</a>
       <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'">关于我</a>
+      <a href="#" th:href="@{/admin}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'">博客后台</a>
 
       <!--搜索框-->
       <div class="right m-item item m-mobile-hide">
         <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
-          <div class="ui icon inverted transparent input m-margin-tb-tiny">
+          <div class="ui icon action inverted transparent input m-margin-tb-tiny">
             <input type="text" name="query" placeholder="搜索...." th:value="${query}">
-            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+            <i onclick="document.forms['search'].submit()" class="search inverted link icon"></i>
           </div>
         </form>
       </div>
 
       <!--github开源地址-->
       <div>
-        <a href="https://github.com/shaoxiongdu/blog" target="_blank"  class="right m-item item m-mobile-hide "><i class="icon big github"></i></a>
+        <a href="#" target="_blank"  class="right m-item item m-mobile-hide "><i class="icon big github"></i></a>
       </div>
 
 
@@ -82,7 +80,7 @@
 </nav>
 
 <!--底部footer-->
-<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+<footer th:fragment="footer" style="background-color:rgba(15, 15, 15, 0.5)" class="ui inverted vertical  m-padded-tb-massive">
   <div class="ui center aligned container">
 
 
@@ -91,66 +89,112 @@
 
       <!--个人说明-->
       <div class="four wide column">
-        <h4 class="ui inverted header me-opacity-mini">BLOG</h4>
+        <h4 class="ui inverted header me-opacity-mini">寄语</h4>
         <div class="ui inverted list link">
-          <p class="item">每个人都有属于自己的一片森林</p>
-          <p class="item">也许我们从来不曾去过</p>
-          <p class="item">但它一直在那里</p>
-          <p class="item">总会在那里</p>
+          <p style="color: #ffffff" class="item">每个人都有一段路要自己走</p>
+          <p style="color: #ffffff" class="item">沿途或许有很多风景</p>
+          <p style="color: #ffffff" class="item">但一旦停留</p>
+          <p style="color: #ffffff" class="item">必然会得到欣赏美也会失去某些东西</p>
+        </div>
+      </div>
+    
+
+      <div class="four wide column">
+        <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>
+        <div id="newblog-container">
+          <div class="ui inverted link list" th:fragment="newblogList">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
+
+
+          </div>
         </div>
       </div>
 
+      <div class="four wide column">
+        <h4 class="ui inverted header me-opacity-mini">IP地址</h4>
+        <div class="ui inverted list link">
+          
+          <p><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+            <span style="color:#bd8787;">你的IP:<script>
+                    document.write(returnCitySN["cip"])
+                   </script></span>
+         </p>
+         <p style="color:#fff;">你的地址:<script>
+                    document.write(returnCitySN["cname"])
+                   </script>© <a style="text-decoration:none;color:rgba(22, 241, 176, 0.867);" href="https://www.x6d.com/">leeliner</a> 版权所有</p>
+                   <script type="text/javascript" color="255,255,255" opacity='0.7' zIndex="-2" count="200" src="../static/js/canvas-nest.min.js"></script>
+
+
+        </div>
+      </div>
+
+      <div class="four wide column">
+        <h4 class="ui inverted header me-opacity-mini" >网站信息</h4>
+        <div class="ui inverted link list">
+
+          <p style="color:#fff;" class="item">访问量 : <span th:text="${session.views}"></span> &nbsp;&nbsp;&nbsp;<br> <br>本网站艰难维护了 : <span style="color:#fff;" id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
+
+        </div>
+      </div>
 
       <!--推荐博客-->
-      <div class="four wide column">
+      <!-- <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini" >最新推荐</h4>
         <div id="newblog-container">
           <div class="ui inverted link list" th:fragment="newblogList">
             <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}"></a>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!--联系作者-->
-      <div class="four wide column">
+      <!-- <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini">联系博主</h4>
         <div class="ui inverted list link">
           <p>
-            <a target="_blank" style="color: #888888" title="添加我的QQ" href="http://wpa.qq.com/msgrd?v=3&uin=740593369&site=qq&menu=yes" >QQ:740593369</a>
+            <a target="_blank" style="color: #fdfdfd" title="添加我的QQ" href="http://wpa.qq.com/msgrd?v=3&uin=740593369&site=qq&menu=yes" >QQ:740593369</a>
           </p>
           <p></p>
-          <p class="item">微信:15603430511</p>
+          <p style="color: #ffffff" class="item">微信:15603430511</p>
           <p>
-            <a target="_blank" style="color: #888888" title="我的Github" href="https://github.com/shaoxiongdu" >GitHub:ShaoxiongDu</a>
+            <a target="_blank" style="color: #ffffff" title="我的Github" href="https://github.com/blog" >GitHub:blog</a>
           </p>
           <p>
-            <a target="_blank" style="color: #888888" title="给我发送邮件" href="mailto:email@shaoxiongdu.cn" >邮箱: email@shaoxiongdu.cn</a>
+            <a target="_blank" style="color: #ffffff" title="给我发送邮件" href="mailto:email@blog.cn" >邮箱: email@blog.cn</a>
           </p>
         </div>
-      </div>
+      </div> -->
 
       <!--微信二维码-->
-      <div class="four wide column">
+      <!-- <div class="four wide column">
         <h4 class="ui inverted header me-opacity-mini" >我的个人微信</h4>
         <div class="ui inverted link list">
 
           <a class="item" href="#" th:href="@{/about}"><img th:src="@{/images/wechat.jpg}" alt="15603430511" title="15603430511"   class="ui rounded image"  style="width: 110px"></a>
 
         </div>
-      </div>
+      </div> -->
 
     </div>
 
-    <div class="ui inverted section divider"></div>
+    <!-- <div class="ui inverted section divider"></div> -->
 
     <!--ICP备案号-->
-    <div class="ui inverted list link">
-      <p style="color: #AAAAAA;font-size: 17px" >程序员不是天生的 | 2021 版权所有 @ 杜少雄 保留所有权利<a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>&nbsp;&nbsp;&nbsp;晋ICP备2020012997号-2</a> <p>
+    <!-- <div class="ui inverted list link">
+      <p style="color: #AAAAAA;font-size: 17px" >程序员不是天生的 | 2021 版权所有 @ 杜少雄 保留所有权利<a style="color:#AAAAAA;" target="_blank" href='https://beian.miit.gov.cn/'>&nbsp;&nbsp;&nbsp;晋ICP备2020012997号-2</a> <p> 
+        <p><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+          <span style="color:#bd8787;">你的IP:<script>
+                  document.write(returnCitySN["cip"])
+                 </script></span>
+       </p>
+       <p style="color:#fff;">你的地址:<script>
+                  document.write(returnCitySN["cname"])
+                 </script>© <a style="text-decoration:none;color:rgba(22, 241, 176, 0.867);" href="https://www.x6d.com/">leeliner</a> 版权所有</p>
+                 <script type="text/javascript" color="255,255,255" opacity='0.7' zIndex="-2" count="200" src="../static/js/canvas-nest.min.js"></script>
 
-
-      <!--访问量数据-->
-      <p class="item">访问量 : <span th:text="${session.views}"></span> &nbsp;&nbsp;&nbsp; 勉强运行 : <span id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
-    </div>
+      <!--访问量数据
+      <p style="color:#fff;" class="item">访问量 : <span th:text="${session.views}"></span> &nbsp;&nbsp;&nbsp;<br> <br>本网站艰难维护了 : <span style="color:#fff;" id="htmer_time" class="item m-text-thin"></span> &nbsp;&nbsp;&nbsp; </p>
+    </div>-->
   </div>
 
 </footer>
@@ -245,7 +289,7 @@
     /*网站建站日期*/
     function setTime() {
       /*此处为网站的创建时间*/
-      var create_time = Math.round(new Date(Date.UTC(2020, 12, 10, 15, 15, 15)).getTime() / 1000);
+      var create_time = Math.round(new Date(Date.UTC(2021, 10, 07, 15, 15, 15)).getTime() / 1000);
       var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
       currentTime = secondToDate((timestamp - create_time));
       currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'

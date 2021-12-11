@@ -1,20 +1,25 @@
 <!--
-  ~ 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ ~二次开发版权所有（c）2021 Leeliner 
   -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head  th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>关于我</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/FiraCode.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/nutssss.css">
   <link rel="stylesheet" href="../static/css/me.css">
 </head>
 
 <!--随机古诗词-->
 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <body>
+  
 
   <!--导航-->
   <nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
@@ -31,29 +36,29 @@
 
         <!--左侧-->
         <div class="five wide column">
-          <div class="ui segment">
+          <div class="ui segment" style="background-color:rgba(255,255,255,0.7)">
               <img th:src="${session.aboutMeImageUrl}" class="ui medium circular image" align="center" >
           </div>
 
           <!--联系-->
           <div class="ui attached bottom segment center aligned">
-            <a target="_blank" title="Github" href="https://github.com/shaoxiongdu" class="ui icon circular button">
+            <a target="_blank" title="Github" href="#" class="ui icon circular button">
               <i class="github icon"></i>
             </a>
 
-            <a target="_blank" title="BiliBili主页"  href="https://space.bilibili.com/175560067" class="ui icon circular button">
+            <a target="_blank" title="BiliBili主页"  href="#" class="ui icon circular button">
               <i class="bitcoin icon"></i>
             </a>
 
-            <a target="_blank" title="微博主页" href="https://weibo.com/7510528502/profile" class="ui icon circular button">
+            <a target="_blank" title="微博主页" href="#" class="ui icon circular button">
               <i class="weibo icon"></i>
             </a>
 
-            <a target="_blank" title="steam主页"  href="https://steamcommunity.com/profiles/76561198446690218/" class="ui icon circular button">
+            <a target="_blank" title="steam主页"  href="#" class="ui icon circular button">
               <i class="steam icon"></i>
             </a>
 
-            <a target="_blank" title="给我发送邮件: email@shaoxiongdu.cn" href="mailto:email@shaoxiongdu.cn" class="ui icon circular button">
+            <a target="_blank" title="给我发送邮件: email@blog.cn" href="mailto:email@#" class="ui icon circular button">
               <i class="mail icon"></i>
             </a>
 
@@ -64,15 +69,15 @@
         <!--右侧-->
         <div class="eleven wide column">
           <!--顶部-->
-          <div class="ui top attached segment">
+          <div class="ui top attached segment" >
             <div class="center aligned ui header" th:utext="${session.aboutMeContent}"></div>
 
-            <div class="attached segment ui aligned">
+            <div style="background-color:rgba(255,255,255,0.7)" class="attached segment ui aligned">
 
               <h3 align="center"><span id="jinrishici-sentence">正在加载今日诗词...</span></h3>
 
              <!--个人标签-->
-              <div class="attached segment ui aligned" >
+              <div class="attached ui aligned" style="background-color:rgba(255,255,255,0.7)">
 
                   <ul>
 
@@ -83,8 +88,115 @@
                   </li>
                   </ul>
 
+                  <div id="box">
+                    <!-- 个人资料卡片 -->
+                    <div class="meBox">
+                        <!-- 头像 -->
+                        <div class="headPhoto"></div>
+                        <!-- 介绍 -->
+                        <div class="meBox-title">
+                            <p>I'm leeliner</p>
+                            <div class="fg"></div>
+                        </div>
+                        <div class="meBox-text">
+                            <p>一条咸鱼<img src="./img/fish.png" alt="咸鱼" style="width: 20px; vertical-align: middle;"></p>
+                            <p>老油条了</p>
+                            <p>爱好健身，计算机</p>
+                            <p>瞎折腾浪费时间最在行</p>
+                            <p>完美主义者<img src="./img/002.png" alt="冰激凌" style="width: 15px; vertical-align: middle;"></p>
+                        </div>
+                        <!-- 两个按钮 -->
+                        <div class="meBox-Button">
+                            <a href="https://lzx1806.top/">Home</a>
+                            <a href="https://leeliner.gitee.io/resume/">About</a>
+                            <!--<a href="https://qm.qq.com/cgi-bin/qm/qr?k=akUsXvSiPaYKIOG6g_O83zUhJ_e--_gi&noverify=0">QQ</a>-->
+                        </div>
+                    </div>
+            
+                    <!-- 伪终端介绍 -->
+                    <div id="cmdBox">
+                        <!-- 第一个终端 -->
+                        <div class="cmd">
+                            <!-- 三个按钮 -->
+                            <div class="click">
+                                <div class="red"></div>
+                                <div class="yellow"></div>
+                                <div class="green"></div>
+                            </div>
+                            <!-- 顶部标题 -->
+                            <div class="title">
+                                <span>root - bash</span>
+                            </div>
+                            <!-- 终端内文字 -->
+                            <div class="cmdText">
+                                <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                                <span style="color: blue;">~</span>
+                                <span style="color: rgb(39, 39, 39);">./tianqi.sh</span>
+                                <br />
+                                <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tc&skin=pitaya" frameborder="0"
+                                    width="350" height="24" allowtransparency="true"></iframe>
+                                <br />
+                                <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                                <span style="color: blue;">~</span>
+                                <span style="color: rgb(39, 39, 39);">cat /me.txt</span>
+                                <p>爱好计算机，会去自学自己感兴趣的一切东西</p>
+                                <p>略懂H5，C#,Python,JQ,PHP；爱好折腾去解决一切问题</p>
+                                <p>硬软件都ok，2019年组装了自己的电脑，期间自己修了几遍</p>
+                                <p>这条路我才刚刚迈开了我的第一步</p>
+                                <p>路上的坎一定会非常多</p>
+                                <p>没事，我头发多</p>
+                                <p>在我眼里</p>
+                                <p>没有什么问题是尝试不能解决的，如果有那就多尝试几次甚至上百次</p>
+                                <p>即使前方的路看似绝境，也要有硬生生给自己开出一条路的勇气</p>
+                                
+                                <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                                <span style="color: blue;">~</span>
+                                <span style="color: rgb(39, 39, 39);">sudo rm -rf /过去的自己/*</span>
+                            </div>
+                        </div>
+                        <!-- 第二个终端 -->
+                        <div class="cmd cmd2">
+                            <!-- 三个按钮 -->
+                            <div class="click">
+                                <div class="red"></div>
+                                <div class="yellow"></div>
+                                <div class="green"></div>
+                            </div>
+                            <!-- 顶部标题 -->
+                            <div class="title">
+                                <span>leeliner - bash</span>
+                            </div>
+                            <!-- 终端内文字 -->
+                            <div class="cmdText">
+                                <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                                <span style="color: blue;">~</span>
+                                <span style="color: rgb(39, 39, 39);">./word.sh</span>
+                                <p>跑龙套语录：</p>
+                                <ul class="ul">
+                                     <!--<li><a href="https://blog.nutssss.cn/">Blog</a></li>
+                                    <li><a href="https://lovexhj.cn/">Love</a></li>
+                                    <li><a href="https://note.nutssss.cn/">Note</a></li>
+                                    <li><a href="https://mc.nutssss.cn/">Mc</a></li>
+                                    <li><a href="https://mc.nutssss.cn/blog/">McBlog</a></li>-->
+                                    <li><a href="#">市级熬夜冠军选手</a></li>
+                                    <li><a href="#">市人民医院精神科赵主任</a></li>
+                                    <li><a href="#">不务正业的孩子是没有未来的</a></li>
+                                    <li><a href="#">每天要把计划拉满并实现</a></li>
+                                    <li><a href="#">期待你的未来，加油</a></li>
+                                </ul>
+                                <span style="color: rgb(0, 190, 0);">root@nutssss</span>
+                                <span style="color: blue;">~</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 
               </div>
-
+              <center><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=leeliner" alt="github语言统计">
+               <br>
+              <img src="https://github-readme-stats.vercel.app/api?username=leeliner&show_icons=true&theme=radical" alt="github账户信息"> <br>
+            </center>
           </div>
 
           </div>
@@ -98,9 +210,11 @@
 
     <!--中间内容-->
   </div>
-
+  
+  
   <br>
   <!--底部footer-->
+    
   <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
 
   </footer>

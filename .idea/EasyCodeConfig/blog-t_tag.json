@@ -20,7 +20,7 @@
   } ],
   "pkColumn" : null,
   "otherColumn" : null,
-  "savePackageName" : "com.shaoxiongdu",
-  "savePath" : "./src/main/java/com/shaoxiongdu",
+  "savePackageName" : "com.blog",
+  "savePath" : "./src/main/java/com/blog",
   "saveModelName" : "blog"
 }

@@ -1,8 +1,8 @@
 /*
- * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/blog>  保留所有权利
  */
 
-package cn.shaoxiongdu;
+package cn.blog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ public class DdosTestMain {
         Runtime runtime = Runtime.getRuntime();
         Process process = null;
         while (true) {
-            process = runtime.exec("ping www.shaoxiongdu.cn");
+            process = runtime.exec("ping www.blog.cn");
             System.out.println(process.toString());
         }
     }

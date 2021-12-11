@@ -1,5 +1,5 @@
 /*
- * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/blog>  保留所有权利
  */
 
 
@@ -8,6 +8,9 @@ body {
     zoom: 1.0;
     -moz-transform: scale(1);
     -moz-transform-origin: 0 0;
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%; 
+    background-attachment:fixed;
 }
 .m-padded-mini {
     padding: 0.2em !important;

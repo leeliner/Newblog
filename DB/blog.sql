@@ -93,12 +93,12 @@ create table t_friend_link
 
 
 /*插入网站信息数据*/
-INSERT INTO blog.t_website_info (value_name, value) VALUES ('aboutMeContent', 'about me something ');
-INSERT INTO blog.t_website_info (value_name, value) VALUES ('aboutMeImageUrl', 'https://gitee.com/ShaoxiongDu/imageBed/raw/master/logo.jpg');
-INSERT INTO blog.t_website_info (value_name, value) VALUES ('topTitle', '<i class="icon paper plane outline"></i>DSX_BLOG');
-INSERT INTO blog.t_website_info (value_name, value) VALUES ('views', '14013');
+INSERT INTO blog.t_website_info (value_name, value) VALUES ('aboutMeContent', '我的简介');
+INSERT INTO blog.t_website_info (value_name, value) VALUES ('aboutMeImageUrl', 'https://gitee.com/blog/imageBed/raw/master/logo.jpg');
+INSERT INTO blog.t_website_info (value_name, value) VALUES ('topTitle', '<i class="github icon"></i>2021BLOG');
+INSERT INTO blog.t_website_info (value_name, value) VALUES ('views', '283');
 
 /**
   插入管理员数据
  */
-INSERT INTO blog.t_user (id, avatar, create_time, email, nickname, password, type, update_time, username) VALUES (1, 'http://p1.music.126.net/d5zrKbBHSO43vegQ9L5gjQ==/109951163963019922.jpg', '2021-03-26 13:44:05', 'your email', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '2021-03-26 13:44:23', 'admin');
+INSERT INTO blog.t_user (id, avatar, create_time, email, nickname, password, type, update_time, username) VALUES (1, 'http://p1.music.126.net/d5zrKbBHSO43vegQ9L5gjQ==/109951163963019922.jpg', '2021-03-26 13:44:05', '1983256069@qq.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1, '2021-03-26 13:44:23', 'admin');

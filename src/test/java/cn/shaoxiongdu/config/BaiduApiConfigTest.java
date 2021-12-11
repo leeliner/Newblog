@@ -1,15 +1,15 @@
 /*
- * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/blog>  保留所有权利
  */
 
-package cn.shaoxiongdu.config;
+package cn.blog.config;
 
-import cn.shaoxiongdu.util.BaiduApi;
+import cn.blog.util.BaiduApi;
 import junit.framework.TestCase;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * @作者: 写Bug的小杜 【email@shaoxiongdu.cn】
+ * @作者: 写Bug的小杜 【email@blog.cn】
  * @时间: 2021/07/24
  * @描述:
  */

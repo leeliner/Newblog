@@ -1,5 +1,5 @@
 <!--
-  ~ 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ ~二次开发版权所有（c）2021 Leeliner 
   -->
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head th:replace="_fragments :: head(~{::title})">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>写Bug的杜少雄</title>
+  <title>blog2021</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css" >
   <link rel="stylesheet" href="../static/css/me.css" >
 </head>
@@ -19,16 +19,16 @@
   </nav>
 
   <!--中间内容-->
-  <div  class="m-container m-padded-tb-big animated fadeIn">
-
+  <div class="container m-padded-tb-big animated fadeIn">
+    <!-- <div class="m-container m-padded-tb-big animated fadeIn"> -->
     <div class="ui container">
       <div class="ui stackable grid">
         <!--左边博客列表-->
-        <div class="eleven wide column">
+        <div class="ten wide column">
 
 
           <!--左侧统计区域-->
-          <div class="ui top attached segment">
+          <div class="ui top attached segment" style="background-color:rgba(255,255,255,0.7)">
             <div class="ui middle aligned two column grid">
               <div class="column">
                 <h3 class="ui teal header">博客列表</h3>
@@ -40,15 +40,15 @@
           </div>
 
           <!--左侧博客列表-->
-          <div class="ui attached  segment">
+          <div class="ui attached  segment" style="background-color:rgba(255,255,255,0.7)">
 
             <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
               <div class="ui middle aligned mobile reversed stackable grid" >
-                <div class="eleven wide column">
+                <div class="ten wide column">
                   <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">?</a></h3>
                   <p  th:text="|${blog.description}|"></p>
                   <div class="ui grid">
-                    <div class="eleven wide column">
+                    <div class="ten wide column">
                       <div class="ui mini horizontal link list">
                         <div class="item">
                           <h4 th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}"></h4>
@@ -64,7 +64,7 @@
                   </div>
                 </div>
 
-                <div class="five wide column">
+                <div class="six wide column">
                   <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
                     <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}" border="1" class="ui medium bordered  rounded image">
                   </a>
@@ -90,7 +90,7 @@
         </div>
 
         <!--右侧区域-->
-        <div class="five wide column">
+        <div style="background-color:rgba(255,255,255,0.7)" class="five wide column">
 
           <!--分类-->
         <div align="center">
@@ -110,7 +110,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui teal segment">
+            <div class="ui teal segment" style="background-color:rgba(255,255,255,0.7)">
               <div class="ui fluid vertical menu" >
                 <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item"  th:each="type : ${types}">
                   <span th:text="${type.name}"></span>
@@ -133,7 +133,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui teal segment">
+            <div class="ui teal segment" style="background-color:rgba(255,255,255,0.7)">
               <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
                 <span th:text="${tag.name}"></span> <div class="detail" th:text="${#arrays.length(tag.blogs)}"></div>
               </a>
@@ -146,9 +146,17 @@
             <div class="ui secondary segment ">
               <h4>最新推荐</h4>
             </div>
-            <div class="ui segment" th:each="blog : ${recommendBlogs}">
+            <div class="ui segment" th:each="blog : ${recommendBlogs}" style="background-color:rgba(255,255,255,0.7)">
               <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}"></a>
             </div>
+          </div>
+
+          <div class="ui segments m-margin-top-large">
+            <div class="ui secondary segment ">
+              <h4>访客地图</h4>
+            </div>
+            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=zfoHUEYTBEfdTzH_wDVf4D3TXxoqG0X1XmhFYzI8BSQ"></script>
+
           </div>
 
           <!--友链-->
@@ -160,7 +168,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui teal segment">
+            <div class="ui teal segment" style="background-color:rgba(255,255,255,0.7)">
               <div class="ui fluid vertical menu" >
                 <a th:each="link:${friendLinks}" th:href="${link.link}" th:text="${link.name}" th:title="${link.getDescription()}" target="_blank" class="ui teal basic  item" >
                 </a>

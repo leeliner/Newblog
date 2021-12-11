@@ -1,5 +1,5 @@
 /*
- * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/shaoxiongdu>  保留所有权利
+ * 版权所有 (c) 2021. 写Bug的小杜 <https://github.com/blog>  保留所有权利
  */
 
 //mIRC mode by Ford_Lawnmower :: Based on Velocity mode by Steve O'Hara
